@@ -21,3 +21,8 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
+    - name: Install pytest
+      run: |
+        pip install pytest
+    - name: Run tests
+      run: pytest tests/test*
