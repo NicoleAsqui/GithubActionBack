@@ -17,9 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
           python -m pip install --upgrade pip
-          pip install -r performance_app/requirements.txt
-          pip install -e .
-          pip install pylint
+          pip install -r /performance_app/requirements.txt
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
@@ -28,4 +26,4 @@ jobs:
         pip install pytest
         pip install pytest-cov
     - name: Run tests
-      run: pytest performance_app/tests/testprueba.py
+      run: pytest /performance_app/tests/testprueba.py
