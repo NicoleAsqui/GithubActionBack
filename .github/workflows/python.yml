@@ -25,4 +25,4 @@ jobs:
       run: |
         pip install pytest
     - name: Run tests
-      run: pytest performance_app/tests/test*
+      run: pytest performance_app/tests/*
