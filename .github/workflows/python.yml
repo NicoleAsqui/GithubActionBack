@@ -21,9 +21,5 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py')
-    - name: Install pytest
-      run: |
-        pip install pytest
-        pip install pytest-cov
     - name: Run tests
-      run: pytest ./performance_app/tests/testprueba.py
+      run: pytest ./performance_app/tests/test*
