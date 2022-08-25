@@ -1,17 +1,28 @@
-ARG RUNTIME_VERSION="3.9"
+FROM python:3.10-alpine
 
-FROM public.ecr.aws/lambda/python:${RUNTIME_VERSION}
+ARG HOME="/home/dev"
+ARG BUILD_DEPS="curl unzip"
+ARG TERRAFORM_VERSION=1.2.7
+ARG TERRAFORM_DOWNLOAD_URL=https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+ARG TERRAFORM_ZIP=terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
-ARG BUILD_DEPS="curl"
-RUN yum update \
-    && yum install ${BUILD_DEPS}
+RUN apk update \
+    && apk add --no-cache ${BUILD_DEPS} bash groff
 
+RUN curl ${TERRAFORM_DOWNLOAD_URL} -o ${TERRAFORM_ZIP} \
+    && unzip ${TERRAFORM_ZIP} \
+    && mv terraform /usr/bin/terraform \
+    && rm ${TERRAFORM_ZIP}
+
+COPY app/requirements.txt .
+RUN pip install --requirement requirements.txt
+# RUN pip install awscli
+
+RUN apk del ${BUILD_DEPS}
+
+
+USER root
+WORKDIR ${HOME}
 COPY . .
-
-RUN  pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
-
-# AS AN EXAMPLE, HAVE A FILE APP.PY WITH A HANDLER FOR THE LAMBDA
-# COPY performance_app/app.py ${LAMBDA_TASK_ROOT}
-# CMD [ "app.handler" ]
 
 CMD ["/bin/bash"]

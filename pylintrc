@@ -1,0 +1,31 @@
+[MASTER]
+#stops the error message "missing-module-docstring"
+disable = C0114
+
+[VARIABLES]
+# Tells whether unused global variables should be treated as a violation.
+allow-global-unused-variables=no
+
+# Tells whether we should check for unused import in __init__ files.
+init-import=yes
+
+[SIMILARITIES]
+
+# Ignore comments when computing similarities.
+ignore-comments=yes
+
+# Ignore docstrings when computing similarities.
+ignore-docstrings=yes
+
+[FORMAT]
+
+# Maximum number of characters on a single line.
+max-line-length=150
+
+# Allow the body of an if to be on the same line as the test if there is no
+# else.
+single-line-if-stmt=no
+
+# Allow the body of a class to be on the same line as the declaration if body
+# contains single statement.
+single-line-class-stmt=no

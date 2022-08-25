@@ -20,6 +20,4 @@ jobs:
           pip install -r ./performance_app/requirements.txt
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
-    - name: Run tests
-      run: pytest ./performance_app/tests/
+        pylint --rcfile=.pylintrc $(git ls-files '*.py')

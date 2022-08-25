@@ -6,11 +6,19 @@
 
 - Create a docker image from Dockerfile
 
+´´´
+docker build -t performance_app .
+´´´
+
+´´´
+docker run -p 9000:8080 --rm -ti performance-app bin/sh
+´´´
+
 This will create a virtual machine (alpine) with python installed. Then the instalation of the dependencies in requirements.txt is run from a command in Dockerfile.
 
 ### Add variables
 
-In the root directory /Office-Desk-Reservation-Backend create a file .env with these values
+In the root directory create a file .env with these values:
 
 ...
 
@@ -28,8 +36,8 @@ You must follow the recommended branch name like below:
 - The project use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) standars.
 - The message should be in the following format: 
     ``` 
-    feat: OFI-219 modify readme 
-    fix: OFI-02 fix function get_example.py
+    feat: PER-219 modify readme 
+    fix: PER-02 fix function get_example.py
     ```
 - Commit types:
     - `fix` : hotfix or something that was fixed because of a bug
