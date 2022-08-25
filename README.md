@@ -24,19 +24,19 @@ In the root directory create a file .env with these values:
 
 ## How to contribute to the project
 
-Clone the repository. 
-From the main branch, create a new branch for each new task. 
-You must follow the recommended branch name like below: 
+Clone the repository.
+From the main branch, create a new branch for each new task.
+You must follow the recommended branch name like below:
 
 ...
 
 
-## Commit the message: 
+## Commit the message:
 
 - The project use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) standars.
-- The message should be in the following format: 
-    ``` 
-    feat: PER-219 modify readme 
+- The message should be in the following format:
+    ```
+    feat: PER-219 modify readme
     fix: PER-02 fix function get_example.py
     ```
 - Commit types:
@@ -52,7 +52,7 @@ You must follow the recommended branch name like below:
 - Include reviewers in the PR.
 
 ## Architecture
-This application is based on DDD (Domain Driven Design) for its architecture. 
+This application is based on DDD (Domain Driven Design) for its architecture.
 
 There is a directory for each entitiy (Employee, Bonus, Components). Each folder will have another 3 directories: application, domain and infrastructure; That is how the building blocks of the application can be separated, creating an agnostic core layer - domain - that contain all the business logic, independent from any implementation or external sources.
 
