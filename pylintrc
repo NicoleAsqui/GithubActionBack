@@ -1,6 +1,7 @@
 [MASTER]
 #stops the error message "missing-module-docstring"
-disable = C0114
+disable=
+     missing-docstring,
 
 [VARIABLES]
 # Tells whether unused global variables should be treated as a violation.
